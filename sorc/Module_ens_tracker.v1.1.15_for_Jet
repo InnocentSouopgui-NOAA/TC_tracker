@@ -1,26 +1,20 @@
 #%Module  for JET  ################################################
-setenv NCEPLIBS /mnt/lfs4/HFIP/hfv3gfs/nwprod/NCEPLIBS/lib
+module use /mnt/lfs4/HFIP/hfv3gfs/role.epic/spack-stack/spack-stack-1.6.0/envs/gsi-addon-dev-rocky8/install/modulefiles/Core
 
-module use /mnt/lfs4/HFIP/hfv3gfs/nwprod/NCEPLIBS/modulefiles
-module use /apps/modules/modulefamilies/intel
-module use /apps/modules/modulefamilies/intel_impi
+module load stack-intel/2021.5.0
+module load stack-intel-oneapi-mpi/2021.5.1
 
-module load intel/18.0.5.274
-module load impi/2018.4.274
-#module load nco/4.7.0
+module load jasper/2.0.32
+module load zlib/1.2.13
+module load libpng/1.6.37
+module load hdf5/1.14.0
+module load netcdf-c/4.9.2
+module load netcdf-fortran/4.6.1
+module load bacio/2.4.1
+module load w3emc/2.10.0
+module load w3nco/2.4.1
+module load sp/2.5.0
+module load ip/4.3.0
+module load sigio/2.3.2
+module load g2/3.4.5
 
-module load png/v1.2.44
-#module load w3emc/2.4.0
-module load w3nco/v2.0.6
-module load bacio/v2.0.2
-module load g2/v3.1.0
-
-module load z/v1.2.6
-module load jasper/v1.900.1
-module load sigio/v2.1.0
-module load sp/v2.0.2
-module load ip/v3.0.1
-
-module load hdf5_parallel/1.10.6
-module load netcdf_parallel/4.7.4
-module load w3emc_para/v2.4.0
