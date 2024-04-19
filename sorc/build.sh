@@ -99,12 +99,15 @@ elif [[ -d /lfs1 ]] ; then
  module load Module_ens_tracker.v1.1.15_for_Jet
 
 machine=jet
-#export INC="${G2_INCd} -I${NETCDF}/include ${PNETCDF_INCLUDE} ${HDF5_INCLUDE_OPTS} "
-#export LIBS="${W3EMC_LIBd} ${W3NCO_LIBd} ${BACIO_LIB4} ${G2_LIBd} ${PNG_LIB} ${JASPER_LIB} ${Z_LIB} ${SP_LIBd} ${IP_LIBd} -L${NETCDF}/lib -lnetcdf ${PNETCDF_LD_OPTS} ${HDF5_LINK_OPTS}"
-export INC="${G2_INCd} -I${NETCDF}/include -I${HDF5}/include "
-export LIBS="${W3EMC_LIBd} ${W3NCO_LIBd} ${BACIO_LIB4} ${G2_LIBd} ${PNG_LIB} ${JASPER_LIB} ${Z_LIB} ${SP_LIBd} ${IP_LIBd} -L${NETCDF}/lib -lnetcdff -lnetcdf -L${HDF5}/lib -lhdf5_hl -lhdf5 "
-export LIBS_SUP="${W3EMC_LIBd} ${W3NCO_LIBd}"
-export LIBS_UK="${W3NCO_LIB4} ${BACIO_LIB4}"
+  #=============================
+  # April 2024, using spack-stack on Jet
+  # with spack-stack, lib names are lowerecased in environmental variables
+  export NETCDF_LDFLAGS="-L${netcdf_fortran_ROOT}/lib -lnetcdff -L${netcdf_c_ROOT}/lib -lnetcdf     -L${hdf5_ROOT}/lib     -lhdf5_hl -lhdf5 -L${zlib_ROOT}/lib -lz -ldl -lm"
+  export NETCDF_INCLUDES="-I${netcdf_c_ROOT}/include -I${netcdf_fortran_ROOT}/include -I${hdf5_ROOT}/include"
+  export INC="${G2_INCd} ${NETCDF_INCLUDES}"
+  export LIBS="${W3EMC_LIBd} ${W3NCO_LIBd} ${BACIO_LIB4} ${G2_LIBd} ${PNG_ROOT}/lib64/libpng.a     -L${jasper_ROOT}/lib64 -ljasper ${zlib_ROOT}/lib/libz.a ${NETCDF_LDFLAGS}"
+  export LIBS_SUP="${W3EMC_LIBd} ${W3NCO_LIBd}"
+  export LIBS_UK="${W3NCO_LIB4} ${BACIO_LIB4}"
 
 for dir in *.fd; do
 #for dir in gettrk_gfs.fd; do
