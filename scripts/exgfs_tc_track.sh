@@ -44,7 +44,7 @@ elif [[ -d /work ]] ; then
   machine=orion
   ${USHens_tracker}/extrkr_gfs.sh ${loopnum} ${cmodel} ${ymdh} ${pert} ${pertdir} #2>&1 >${outfile}
 
-elif [[ -d /lfs3 ]] ; then
+elif [[ -d /lfs1 ]] ; then
   # We are on NOAA Jet
   machine=jet
   ${USHens_tracker}/extrkr_gfs.sh ${loopnum} ${cmodel} ${ymdh} ${pert} ${pertdir} #2>&1 >${outfile}
