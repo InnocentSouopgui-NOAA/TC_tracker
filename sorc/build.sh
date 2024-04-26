@@ -94,7 +94,7 @@ for dir in *.fd; do
   cd ..
 done
 
-elif [[ -d /lfs1 ]] ; then
+elif [[ -d /lfs5 ]] ; then
  # Load module file for Jet
  module load Module_ens_tracker.v1.1.15_for_Jet
 
